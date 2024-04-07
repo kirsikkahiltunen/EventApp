@@ -19,7 +19,7 @@ Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sek
 
 ## Tällä hetkellä toimivat ominaisuudet:
 
-- käyttäjä voi kirjautua sisään ja ulos sekä uoda uudet tunnukset
+- käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset
 
 
 

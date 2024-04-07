@@ -1,0 +1,22 @@
+<title>Etusivu</title>
+<h1>Tervetuloa käyttämään tapahtuma sovellusta!</h1>
+<p>
+Tällä sivulla tulee pian näkymään listaus kaikista tapahtumista aikajärjestyksessä
+<p>
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+Et ole vielä kirjautunut sisään.
+<form action="/login" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Kirjaudu">
+</form>
+<p>
+    Etkö ole vielä rekisteröitynyt?
+    <p>
+        <button onclick="window.location.href='/register'">rekisteröidy käyttäjäksi</button>
+{% endif %}

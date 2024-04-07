@@ -19,15 +19,16 @@ Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sek
 
 ## Tällä hetkellä toimivat ominaisuudet:
 
-- käyttäjä voi kirjautua sisään ja ulos sekä luoda tunnuksen
+- käyttäjä voi kirjautua sisään ja ulos sekä uoda uudet tunnukset
 
 
 
-Ohjeet sovelluksen käynnistämiseen:
+### Ohjeet sovelluksen käynnistämiseen:
 
 Kloonaa tämä repositorio omalle koneellesi. Siirry sen hakemiston juurikansioon, johon kloonasit tämän repositorion. Luo tähän kansioon oma paikallinen .env-tiedosto jonka sisällön tulee olla seuraava:
 
 SECRET_KEY=oma salainen avain
+
 DATABASE_URI=postgresql:///tietokannan nimi
 
 Seuraavaksi valmistellaan ja aktivoidaan tarvittava virtuaaliympäristö ja asennetaan riippuvuudet ajamalla seuraavat komennot terminaalissa:

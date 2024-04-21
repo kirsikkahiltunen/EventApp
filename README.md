@@ -19,7 +19,10 @@ Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sek
 
 ## Tällä hetkellä toimivat ominaisuudet:
 
-- käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset
+- käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset.
+- Käyttäjä näkee listan tapahtumista.
+- Käyttäjä voi luoda uusia tapahtumia.
+- Tapahtumaa luodessa käyttäjä lisää tapahtumalle nimen, kuvauksen, päivämäärän ja kellonajan sekä tapahtuman kategorian.
 
 
 

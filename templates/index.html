@@ -1,12 +1,26 @@
 <title>Etusivu</title>
 <h1>Tervetuloa käyttämään tapahtuma sovellusta!</h1>
-<p>
-Tällä sivulla tulee pian näkymään listaus kaikista tapahtumista aikajärjestyksessä
+
 <p>
 {% if session.username %}
 <p>Olet kirjautunut nimellä {{ session.username }}</p>
 <p><button onclick="window.location.href='/create_event'">Luo uusi tapahtuma</button></p>
 <a href="/logout">Kirjaudu ulos</a>
+<p>
+    Tapahtumien määrä: {{ count }}
+    <hr>
+    {% for event in events %}
+    {{ event.event_name }}
+    <p>
+    Ajankohta:
+    <p>
+    {{ event.event_date_time }}
+    <p>
+    {{ event.event_description }}
+    <hr>
+    {% endfor %}
+
+
 {% else %}
 Et ole vielä kirjautunut sisään.
 <p>

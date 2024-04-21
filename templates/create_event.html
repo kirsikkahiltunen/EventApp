@@ -1,0 +1,46 @@
+<h2>Luo uusi tapahtuma</h2>
+<form action = "/create_event" method = "POST">
+    <p>
+    Tapahtuman nimi: <br><input type = "text" name = "event_name" required>
+    <p>
+    Tapahtuman ajankohta:
+    <p>
+        <input type = "datetime-local" name = "date_time" required>
+    <p>
+    Tapahtuman kategoria: 
+    <br>
+    <p>
+    <input type="checkbox" name="category" value="1"> Juhla
+    <p>
+    <input type="checkbox" name="category" value="2"> Lautapelit
+    <p>
+    <input type="checkbox" name="category" value="3"> Ulkoilma
+    <p>
+    <input type="checkbox" name="category" value="4"> Hyväntekeväisyys
+    <p>
+    <input type="checkbox" name="category" value="5"> Myyjäiset
+    <p>
+    <input type="checkbox" name="category" value="6"> Kokoperheelle
+    <p>
+    <input type="checkbox" name="category" value="7"> Eläimet
+    <p>
+    <input type="checkbox" name="category" value="8"> Populaarikulttuuri
+    <p>
+    <input type="checkbox" name="category" value="9"> Kulttuuri
+    <p>
+    <input type="checkbox" name="category" value="10"> Urheilu
+    <p>
+    <input type="checkbox" name="category" value="11"> Muu tapahtuma
+    <p>
+    Tapahtuman kuvaus:
+    <br>
+    <textarea name="description" rows="3" cols="50"></textarea required>
+    <p>
+    <button type = "submit"> Valmis </button>
+
+</form>
+{%if error %}
+<p>
+    {{ message }}
+<p>
+{% endif %}

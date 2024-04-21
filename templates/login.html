@@ -1,9 +1,14 @@
 <h2>Kirjaudu sisään käyttäen tunnuksiasi</h2>
 <form actions = "/login" method = "POST">
-    Käyttäjätunnus: <br><input type = "text" name = "username" required>
+    Käyttäjätunnus: <br><input type = "text" name = "username" required value={{username}}>
     <p>
-        Salasana: <br><input type = "password" name = "password" size = "20" required>
+        Salasana: <br><input type = "password" name = "password" size = "20" required value={{password}}>
     <p>
         <button type = "submit"> Kirjaudu </button>
 
 </form>
+{% if error %}
+<p>
+    {{ message }}
+<p>
+{% endif %}

@@ -1,11 +1,17 @@
 <h2>Luo itsellesi käyttäjätunnus ja salasana</h2>
 <form action = "/register" method = "POST">
     <p>
-    Käyttäjätunnus: <br><input type = "text" name = "username" required>
+    Käyttäjätunnus: <br><input type = "text" name = "username" required value={{username}}>
     <p>
-        Salasana: <br><input type = "password" name = "password1" size = "20" required>
+        Salasana: <br><input type = "password" name = "password1" size = "20" required value={{password1}}>
     <p>
-        Salasana uudestaan: <br><input type = "password" name = "password2" size = "20">
+        Salasana uudestaan: <br><input type = "password" name = "password2" size = "20" required value={{password2}}>
+    <p>
         <button type = "submit"> Rekisteröidy </button>
 
 </form>
+{%if error %}
+<p>
+    {{ message }}
+<p>
+{% endif %}

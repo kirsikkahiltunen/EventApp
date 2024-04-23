@@ -19,7 +19,7 @@ Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sek
 
 ## Tällä hetkellä toimivat ominaisuudet:
 
-- käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset.
+- Käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset.
 - Käyttäjä näkee listan tapahtumista.
 - Käyttäjä voi luoda uusia tapahtumia.
 - Tapahtumaa luodessa käyttäjä lisää tapahtumalle nimen, kuvauksen, päivämäärän ja kellonajan sekä tapahtuman kategorian.
@@ -46,6 +46,6 @@ $ source venv/bin/activate
 
 sovelluksen saa käyntiin komennolla (venv) $ flask run
 
-Tällä hetkellä sovelluksessa toimii vain sisään- ja uloskirjautuminen sekä uuden käyttäjän rekisteröiminen. 
+Sovelluksessa pystyy rekisteröimään uuden käyttäjän, kirjautumaan sisään, luomaan uusia tapahtumia, näkemään etusivulla listauksen kaikista tapahtumista ja kirjautumaan ulos. 
 
 

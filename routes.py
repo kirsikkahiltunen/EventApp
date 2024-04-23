@@ -7,7 +7,7 @@ import users
 def index():
     events_list = events.get_all()
     count = len(events_list)
-    return render_template("index.html", events=events_list, count=count, )
+    return render_template("index.html", events=events_list, count=count)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

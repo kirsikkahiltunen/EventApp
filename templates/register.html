@@ -7,6 +7,7 @@
     <p>
         Salasana uudestaan: <br><input type = "password" name = "password2" size = "20" required value={{password2}}>
     <p>
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         <button type = "submit"> Rekisteröidy </button>
 
 </form>

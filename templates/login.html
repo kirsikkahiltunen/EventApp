@@ -4,8 +4,8 @@
     <p>
         Salasana: <br><input type = "password" name = "password" size = "20" required value={{password}}>
     <p>
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         <button type = "submit"> Kirjaudu </button>
-
 </form>
 {% if error %}
 <p>

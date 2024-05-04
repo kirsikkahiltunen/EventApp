@@ -30,6 +30,10 @@ def register():
         username = request.form["username"]
         password1 = request.form["password1"]
         password2 = request.form["password2"]
+        already_user = users.username_already_exists(username)
+
+        if already_user:
+            return render_template("register.html", error=True, message="Käyttäjätunnus on jo käytössä", username=username, password1=password1, password2=password2)
 
         if len(username)<3:
             return render_template("register.html", error=True, message="Käyttäjätunnuksen tulee olla yli kolmen merkin mittainen", username=username, password1=password1, password2=password2)
@@ -71,4 +75,42 @@ def create_event():
         events.create_event(user_id, username, event_name, event_date_time, event_category, event_description)
 
         return redirect("/")
-        
+    
+
+@app.route("/event_info", methods=["GET", "POST"])
+def event_info():
+    if request.method == "GET":
+        return render_template("event_info.html")
+    if request.method == "POST":
+        event_id = request.form["event_id"]
+        event = events.get_event_by_id(event_id)
+        return render_template("event_info.html", event=event)
+
+@app.route("/participate_event", methods=["POST"])
+def participate_event():
+    event_id = request.form["event_id"]
+    user_id = session["user_id"]
+    username = session["username"]
+    already_participate=events.get_participation(user_id, event_id)
+    event = events.get_event_by_id(event_id)
+    if already_participate:
+        print("Käyttäjä, jo ilmoittautunut osallistujaksi")
+        return render_template("event_info.html", event=event)
+    print("Osallistuminen onnistui")
+    return render_template("event_info.html", event=event)
+
+@app.route("/send", methods=["POST"])
+def send():
+    content = request.form["content"]
+    event_id = request.form["event_id"]
+    user_id = session["user_id"]
+    event = events.get_event_by_id(event_id)
+    events.send_message(user_id, event_id, content)
+    return render_template("event_info.html", event=event)
+
+@app.route("/search", methods=["GET"])
+def search():
+    query = request.args.get("query")
+    search_results=events.find(query)
+    count=len(search_results)
+    return render_template("index.html", events=search_results, count=count)

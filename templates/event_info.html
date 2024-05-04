@@ -30,56 +30,28 @@
       </form>
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h2>Luo uusi tapahtuma</h2>
-            <form action = "/create_event" method = "POST">
-            <p>
-            Tapahtuman nimi: <br><input type = "text" name = "event_name" required>
-            <p>
-            Tapahtuman ajankohta:
-            <p>
-            <input type = "datetime-local" name = "date_time" required>
-            <p>
-            Tapahtuman kategoria: 
-            <br>
-            <p>
-            <input type="checkbox" name="category" value="1"> Juhla
-            <p>
-            <input type="checkbox" name="category" value="2"> Lautapelit
-            <p>
-            <input type="checkbox" name="category" value="3"> Ulkoilma
-            <p>
-            <input type="checkbox" name="category" value="4"> Hyväntekeväisyys
-            <p>
-            <input type="checkbox" name="category" value="5"> Myyjäiset
-            <p>
-            <input type="checkbox" name="category" value="6"> Kokoperheelle
-            <p>
-            <input type="checkbox" name="category" value="7"> Eläimet
-            <p>
-            <input type="checkbox" name="category" value="8"> Populaarikulttuuri
-            <p>
-            <input type="checkbox" name="category" value="9"> Kulttuuri
-            <p>
-            <input type="checkbox" name="category" value="10"> Urheilu
-            <p>
-            <input type="checkbox" name="category" value="11"> Muu tapahtuma
-            <p>
-            Tapahtuman kuvaus:
-            <br>
-            <textarea name="description" rows="3" cols="50"></textarea required>
-            <p>
-            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-            <button type = "submit" class="btn btn-lg btn-primary"> Valmis </button>
-
+<p></p>
+<h2>{{ event.event_name }}</h2>
+    <p>
+    Järjestäjä:
+    <p>{{ event.event_user }}</p>
+    Ajankohta:
+    <p>
+    {{ event.event_date_time }}
+    <p>
+    {{ event.event_description }}
+    <p>
+        <form action="/participate_event" method="POST">
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+            <button onclick="window.location.href='/participate_event'">Osallistu tapahtumaan</button>
         </form>
-      {%if error %}
-      <p>
-        {{ message }}
-      <p>
-        {% endif %}
-    </div>
-  </div>
-</div>
+        {% if session.username != event.event_user %}
+        <h3>Lähetä viesti tapahtuman "{{ event.event_name }}" järjestäjälle: </h3>
+        <form action="/send" method="POST">
+            Viesti: <br>
+            <textarea name="content" rows="3" cols="40" required></textarea>
+            <br>
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+            <input type="submit" value="Lähetä">
+        </form>
+        {% endif %} 

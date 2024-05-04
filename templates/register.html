@@ -1,16 +1,23 @@
-<h2>Luo itsellesi käyttäjätunnus ja salasana</h2>
-<form action = "/register" method = "POST">
-    <p>
-    Käyttäjätunnus: <br><input type = "text" name = "username" required value={{username}}>
-    <p>
-        Salasana: <br><input type = "password" name = "password1" size = "20" required value={{password1}}>
-    <p>
-        Salasana uudestaan: <br><input type = "password" name = "password2" size = "20" required value={{password2}}>
-    <p>
-        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-        <button type = "submit"> Rekisteröidy </button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2>Luo itsellesi käyttäjätunnus ja salasana</h2>
+        <form action = "/register" method = "POST">
+            <p>
+            Käyttäjätunnus: <br><input type = "text" name = "username" required value={{username}}>
+            <p>
+                Salasana: <br><input type = "password" name = "password1" size = "20" required value={{password1}}>
+                <small id="passwordhelp" class="text-muted">
+                    Salasanan tulee olla yli 8 merkkiä pitkä ja sisältää ainakin yhden pienenkirjaimen, isonkirjaimen, numeron ja erikoismerkin
+                </small>
+            <p>
+                Salasana uudestaan: <br><input type = "password" name = "password2" size = "20" required value={{password2}}>
+            <p>
+                <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+                <button type = "submit" class="btn btn-lg btn-primary"> Rekisteröidy </button>
 
-</form>
+        </form>
 {%if error %}
 <p>
     {{ message }}

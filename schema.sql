@@ -17,7 +17,15 @@ CREATE TABLE events(
 CREATE TABLE participants(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
-    event_id INT REFERENCES events(id)
+    event_id INT REFERENCES events(id),
+    username TEXT
+);
+
+CREATE TABLE messages(
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    event_id INT REFERENCES events(id),
+    content TEXT
 );
 
 INSERT INTO users (username, password) VALUES ('Testi_kayttaja', '   ');

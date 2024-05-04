@@ -64,8 +64,13 @@ def valid_password(password):
     
     return False
    
-
-
+def username_already_exists(username):
+    sql = text("SELECT* FROM users WHERE username=:username")
+    result = db.session.execute(sql, {"username":username})
+    user = result.fetchone()
+    if user:
+        return True
+    return False
 
 def user_id():
     return session.get("user_id", 0)

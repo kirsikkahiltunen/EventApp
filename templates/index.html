@@ -7,7 +7,7 @@
 <p>
 {% if session.username %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Tapahtumasovellus</a>
+  <a class="navbar-brand" href="/">Tapahtumasovellus</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,6 +23,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href='/create_event'>Luo uusi tapahtuma</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href='/my_messages'>Omat viestit</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href='/logout'>Kirjaudu ulos</a>
       </li>
@@ -40,6 +42,11 @@
 <p><button onclick="window.location.href='/create_event'">Luo uusi tapahtuma</button></p>
 <a href="/logout">Kirjaudu ulos</a>
 <p>
+  {% if deleted %}
+  <p style="color: green;">
+  {{ message }}
+  <p>
+  {% endif %}
     <h3>Tapahtumien määrä: {{ count }}</h3>
     <hr>
     {% for event in events %}
@@ -53,6 +60,7 @@
     <p>
       <form action="/event_info" method="POST">
         <input type="hidden" name="event_id" value="{{ event.id }}">
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         <button onclick="window.location.href='/event_info'">Lisätietoja</button>
       </form>
     <hr>

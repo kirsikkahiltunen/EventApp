@@ -34,7 +34,9 @@ CREATE TABLE participants(
 CREATE TABLE messages(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
+    username TEXT,
     event_id INT REFERENCES events(id),
+    title TEXT,
     content TEXT
 );
 

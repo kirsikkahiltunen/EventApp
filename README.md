@@ -1,28 +1,16 @@
 # Tapahtuma sovellus
 
-Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sekä hakea tapahtumia ja lähettää viestejä tapahtuman järjestävälle. Jokainen käyttäjä on peruskäyttäjä tai ylläpitäjä.
+Sovelluksessa käyttäjät voivat luoda tapahtumia ja osallistua tapahtumiin sekä hakea tapahtumia ja lähettää viestejä tapahtuman järjestävälle.
 
-## sovelluksen ominaisuuksia:
+## sovelluksen ominaisuudet:
 
 - Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
 - Käyttäjä näkee listan tapahtumista ja voi osallistua tapahtumiin.
 - Käyttäjä voi hakea tapahtumia hakusanoilla. 
-- Käyttäjä voi suodattaa tapahtumia kategorian tai ajankohdan mukaan.
 - Käyttäjä voi luoda uusia tapahtumia sekä muokata tai poistaa oman tapahtumansa.
-- Tapahtumaa luodessa käyttäjä lisää tapahtumalle nimen, kuvauksen, päivämäärän ja kellonajan, osoitteen tai muun paikkatiedon sekä tapahtuman kategorian. 
-- Tapahtuman voi määrittää julkiseksi tai yksityiseksi.
-- Yksityisiin tapahtumiin voivat ilmoittautua vain tapahtuman järjestäjän valitsemat käyttäjät.
+- Tapahtumaa luodessa käyttäjä lisää tapahtumalle nimen, kuvauksen, päivämäärän ja kellonajan sekä tapahtuman kategorian. 
 - Käyttäjä näkee listan luomistaan tapahtumista ja näkee kuinka monta osallistujaa tapahtumassa on sekä osallistujien nimet.
 - Käyttäjä voi lähettää viestin tapahtuman järjestäjälle ja järjestäjä voi vastata viesteihin.
-- Ylläpitäjä näkee kaikki tapahtumat ja tapahtumiin ilmoittautuneet. Ylläpitäjä voi poistaa tapahtumia tai perua käyttäjän ilmoittautumisen tapahtumaan.
-
-
-## Tällä hetkellä toimivat ominaisuudet:
-
-- Käyttäjä voi kirjautua sisään ja ulos sekä luoda uudet tunnukset.
-- Käyttäjä näkee listan tapahtumista.
-- Käyttäjä voi luoda uusia tapahtumia.
-- Tapahtumaa luodessa käyttäjä lisää tapahtumalle nimen, kuvauksen, päivämäärän ja kellonajan sekä tapahtuman kategorian.
 
 
 
@@ -44,8 +32,6 @@ $ source venv/bin/activate
 
 (venv) $ psql < schema.sql
 
-sovelluksen saa käyntiin komennolla (venv) $ flask run
-
-Sovelluksessa pystyy rekisteröimään uuden käyttäjän, kirjautumaan sisään, luomaan uusia tapahtumia, näkemään etusivulla listauksen kaikista tapahtumista ja kirjautumaan ulos. 
+sovelluksen saa käyntiin komennolla (venv) $ flask run 
 
 

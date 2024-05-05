@@ -14,6 +14,16 @@ CREATE TABLE events(
     event_description TEXT
 );
 
+CREATE TABLE past_events(
+    id SERIAL PRIMARY KEY,
+    event_name TEXT,
+    event_date_time TIMESTAMP,
+    event_category TEXT[],
+    organizer INT REFERENCES users(id),
+    event_user TEXT,
+    event_description TEXT
+);
+
 CREATE TABLE participants(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
